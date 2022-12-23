@@ -1,0 +1,91 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{ReferenceIcons}
+\author{laura.garrison }
+\date{December 2022}
+
+
+
+% necessary packages:
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+
+
+% custom color definition
+\definecolor{lightlightgray}{rgb}{0.9, 0.9, 0.9}
+
+% Topic color box commands
+% molecular
+\newcommand{\md}[1]{
+\begin{tikzpicture}
+	\filldraw[fill=lightlightgray, draw=black] (0,0) rectangle (1em,0.7em);
+\end{tikzpicture} }
+
+% cellular
+\newcommand{\cell}[1]{
+\begin{tikzpicture}
+\filldraw[fill=lightgray, draw=black] (0,0) rectangle (1em,0.7em);
+\end{tikzpicture} }
+
+% tissue
+\newcommand{\tissue}[1]{
+\begin{tikzpicture}
+\filldraw[fill=gray, draw=black] (0,0) rectangle (1em,0.7em);
+\end{tikzpicture} }
+
+% organ
+\newcommand{\organ}[1]{
+\begin{tikzpicture}
+\filldraw[fill=darkgray, draw=black] (0,0) rectangle (1em,0.7em);
+\end{tikzpicture} }
+
+% multiscale
+\newcommand{\multi}[1]{
+\begin{tikzpicture}
+\shade[left color=white,right color=darkgray, draw=black] (0,0) rectangle (1em,0.7em);
+\end{tikzpicture} }
+
+% survey
+\newcommand{\survey}[1]{
+\begin{tikzpicture}
+\filldraw[fill=black, draw=black] (0,0) rectangle (1em,0.7em);
+\end{tikzpicture} }
+
+
+% E, A, C glyphs with partial fills
+\definecolor{excol}{RGB}{244,188,79}
+\definecolor{cocol}{RGB}{84,126,191}
+\definecolor{ancol}{RGB}{239,67,120}
+
+\newcommand{\classify}[3]{
+\,\begin{tikzpicture}
+\draw[excol, thin] (0,0) rectangle (1ex,1.5ex);
+\fill[excol] (0,0) rectangle (1ex,#1*1.5ex);
+\end{tikzpicture}%~
+\,\begin{tikzpicture}
+\draw[ancol, thin] (0,0) rectangle (1ex,1.5ex);
+\fill[ancol] (0,0) rectangle (1ex,#2*1.5ex); % #2 = analysis
+\end{tikzpicture}%~
+\,\begin{tikzpicture}
+\draw[cocol, thin] (0,0) rectangle (1ex,1.5ex);
+\fill[cocol] (0,0) rectangle (1ex,#3*1.5ex); % #3 = commmunication
+\end{tikzpicture}
+}
+
+%---------
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit~\cite{mol}. Morbi ullamcorper odio libero, vel sollicitudin purus molestie eget~\cite{cell}. Sed purus nibh, dignissim auctor imperdiet a, porta sed massa. Curabitur commodo vitae ex vel gravida~\cite{tissue}. Nullam elit mauris, vulputate et pellentesque non, convallis ac ligula. Praesent imperdiet aliquet neque id posuere~\cite{organ}. Nam iaculis convallis libero id vehicula. Aliquam hendrerit lacinia odio commodo malesuada. Ut imperdiet mattis leo, et eleifend quam suscipit et. Cras bibendum lorem vulputate, lacinia arcu eu, volutpat est~\cite{multi}. In auctor eget erat vitae lobortis. In vulputate arcu eu erat pharetra, quis euismod odio tempor. Cras vel consequat diam, at laoreet mauris. Donec ultricies pretium condimentum. Aenean lacus magna, ornare et eros ac, condimentum ornare dui. Duis nibh augue, condimentum sit amet purus tincidunt, eleifend tristique justo. Fusce auctor vestibulum rutrum~\cite{survey}.
+
+
+\bibliographystyle{unsrt}
+\bibliography{bibtex}
+
+\end{document}
+
